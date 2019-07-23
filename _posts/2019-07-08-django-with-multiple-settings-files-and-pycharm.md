@@ -15,6 +15,8 @@ However for me the first time it was not _obvious_ how to configure PyCharm to u
 
 ## So here is a little guide:
 
+_Written for PyCharm 2019.1._
+
 ### First, you need to modify Run/debug Configuration(s)
 
 That is the dropdown menu to the left of Run and Debug buttons.
@@ -28,6 +30,8 @@ Use "+" button to add new variable. As a name use: `DJANGO_SETTINGS_MODULE` and 
 So lets say I have project named "HumbleBlog" and I want to use `dev.py` settings file in the `settings` directory. My value for `DJANGO_SETTINGS_MODULE` would be `HumbleBlog.settings.dev`. Thats it :-) You project will now use this settings file.
 
 ### Second, you need to tell the built-in Terminal what to use
+
+**Note:** There appears to be bug in PyCharm at the moment which makes these settings described below global instead of project specific as the Preferences window claims.
 
 PyCharm comes with handy Terminal window for running commands like `manage.py` and others. But if you use multiple settings files, it won't work. 
 
