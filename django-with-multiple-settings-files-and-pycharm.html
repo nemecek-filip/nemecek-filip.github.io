@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Personal blog">
+  <meta name="author" content="Filip Němeček">
+
+  <title>Humble Dev Blog - Filip Němeček</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Filip Němeček</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" >
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Django with multiple settings files and PyCharm</h1>
+            <h4 class="subheading">Short guide how to use multiple settings files with PyCharm, so you dont have to specify --settings flag each time.</h4>
+            <span class="meta">Posted by Filip Němeček
+              on August 24, 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Django projects by default have one <code class="highlighter-rouge">settings.py</code> file containing all the important project settings. However you very likely want different settings for development and different for production or testing. For example debug mode should never been turned on on production site.</p>
+
+<p>I am personally very happy with the “multiple settings files” pattern which you can read more about <a href="https://simpleisbetterthancomplex.com/tips/2017/07/03/django-tip-20-working-with-multiple-settings-modules.html">here</a> or Google it.</p>
+
+<p>However for me the first time it was not <em>obvious</em> how to configure PyCharm to use custom settings file in the <code class="highlighter-rouge">settings</code> directory instead of the expected default <code class="highlighter-rouge">settings.py</code> in the root folder of the site.</p>
+
+<h2 id="so-here-is-a-little-guide">So here is a little guide:</h2>
+
+<p><em>Written for PyCharm 2019.1.</em></p>
+
+<h4 id="first-you-need-to-modify-rundebug-configurations">First, you need to modify Run/debug Configuration(s)</h4>
+
+<p>That is the dropdown menu to the left of Run and Debug buttons.</p>
+
+<p>After clicking select “Edit configurations…”</p>
+
+<p>Here you can see section named “Environment” and you need to edit the first field “Environment variables” - just click on the icon on the right.</p>
+
+<p>Use “+” button to add new variable. As a name use: <code class="highlighter-rouge">DJANGO_SETTINGS_MODULE</code> and for the value <code class="highlighter-rouge">[project name].settings.[filename without .py]</code>.</p>
+
+<p>So lets say I have project named “HumbleBlog” and I want to use <code class="highlighter-rouge">dev.py</code> settings file in the <code class="highlighter-rouge">settings</code> directory. My value for <code class="highlighter-rouge">DJANGO_SETTINGS_MODULE</code> would be <code class="highlighter-rouge">HumbleBlog.settings.dev</code>. Thats it :-) You project will now use this settings file.</p>
+
+<h4 id="second-you-need-to-tell-the-built-in-terminal-what-to-use">Second, you need to tell the built-in Terminal what to use</h4>
+
+<p><strong>Note:</strong> There appears to be bug in PyCharm at the moment which makes these settings described below global instead of project specific as the Preferences window claims.</p>
+
+<p>PyCharm comes with handy Terminal window for running commands like <code class="highlighter-rouge">manage.py</code> and others. But if you use multiple settings files, it won’t work.</p>
+
+<p>You need to go to PyCharm Preferences and select Terminal in the window. Here in the Project Settings section you can see the same “Environment variables” setting. Simply repeat the steps above to set the variable <code class="highlighter-rouge">DJANGO_SETTINGS_MODULE</code> to your desired settings file.</p>
+
+<p>Done!</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+   <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://twitter.com/nemecek_f">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/nemecek-filip">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Filip Němeček 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
