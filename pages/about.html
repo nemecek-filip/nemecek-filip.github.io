@@ -8,7 +8,7 @@
   <meta name="description" content="Personal blog">
   <meta name="author" content="Filip Němeček">
 
-  <title>Django with multiple settings files and PyCharm | Humble Dev Blog - Filip Němeček</title>
+  <title>ABOUT | Humble Dev Blog - Filip Němeček</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,13 +20,6 @@
 
   <!-- Custom styles for this template -->
   <link href="../css/clean-blog.min.css" rel="stylesheet">
-
-  <style>
-    p img {
-      width: 100%;
-      height: auto;
-    }
-  </style>
 
 </head>
 
@@ -45,9 +38,6 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -60,10 +50,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Django with multiple settings files and PyCharm</h1>
-            <h4 class="subheading"></h4>
-            <span class="meta">Posted by Filip Němeček
-              on Jul, 08 2019</span>
+            <h1>ABOUT</h1>
           </div>
         </div>
       </div>
@@ -75,41 +62,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          	<p>Django projects by default have one <code>settings.py</code> file containing all the important project settings. However you very likely want different settings for development and different for production or testing. For example debug mode should never been turned on on production site.</p>
-
-<p>I am personally very happy with the "multiple settings files" pattern which you can read more about <a href="https://simpleisbetterthancomplex.com/tips/2017/07/03/django-tip-20-working-with-multiple-settings-modules.html">here</a> or Google it.</p>
-
-<p>However for me the first time it was not <em>obvious</em> how to configure PyCharm to use custom settings file in the <code>settings</code> directory instead of the expected default <code>settings.py</code> in the root folder of the site.</p>
-
-<h2>So here is a little guide:</h2>
-
-<p><em>Written for PyCharm 2019.1.</em></p>
-
-<h3>First, you need to modify Run/debug Configuration(s)</h3>
-
-<p>That is the dropdown menu to the left of Run and Debug buttons.</p>
-
-<p>After clicking select "Edit configurations..."</p>
-
-<p>Here you can see section named "Environment" and you need to edit the first field "Environment variables" - just click on the icon on the right.</p>
-
-<p>Use "+" button to add new variable. As a name use: <code>DJANGO_SETTINGS_MODULE</code> and for the value <code>[project name].settings.[filename without .py]</code>. </p>
-
-<p>So lets say I have project named "HumbleBlog" and I want to use <code>dev.py</code> settings file in the <code>settings</code> directory. My value for <code>DJANGO_SETTINGS_MODULE</code> would be <code>HumbleBlog.settings.dev</code>. Thats it :-) You project will now use this settings file.</p>
-
-<h3>Second, you need to tell the built-in Terminal what to use</h3>
-
-<p><strong>Note:</strong> There appears to be bug in PyCharm at the moment which makes these settings described below global instead of project specific as the Preferences window claims.</p>
-
-<p>PyCharm comes with handy Terminal window for running commands like <code>manage.py</code> and others. But if you use multiple settings files, it won't work. </p>
-
-<p>You need to go to PyCharm Preferences and select Terminal in the window. Here in the Project Settings section you can see the same "Environment variables" setting. Simply repeat the steps above to set the variable <code>DJANGO_SETTINGS_MODULE</code> to your desired settings file.</p>
-
-<p>Done!</p>
-
-<hr />
-
-<p><em>Hope this was helpful. If you have any feedback, comments feel free to get in touch.</em></p>
+          	<h3>This page will be improved later, once I know what to write here.</h3>
 
         </div>
       </div>
